@@ -977,14 +977,6 @@
             <h2 class="section-title">📱 המלצות מכל המשפחה</h2>
             <p class="section-subtitle">מצאתם סרטון מגניב? שתפו כאן! 🔥</p>
             
-            <div style="background: #fff3cd; padding: 2rem; border-radius: 15px; margin-bottom: 3rem; text-align: center; border: 2px solid #ffc107;">
-                <h3 style="color: #856404; margin-bottom: 1rem;">⚠️ שימו לב!</h3>
-                <p style="color: #856404; line-height: 1.8;">
-                    <strong>הוספת המלצות תעבוד רק עם שרת משותף!</strong><br>
-                    כרגע הכל נשמר רק במכשיר שלכם (LocalStorage).<br>
-                    אני אכין לכם גרסה עם Firebase כדי שכולם יראו את ההמלצות! 🚀
-                </p>
-            </div>
             
             <div class="tiktok-grid" id="tiktokGrid">
                 <div class="tiktok-card">
@@ -1170,5 +1162,180 @@
             });
         }
     </script>
+</body>
+</html>    
+    <!-- Firebase Integration -->
+    <script type="module">
+        // Import Firebase functions
+        import { 
+            saveUserProfile, 
+            getAllUsers, 
+            updateUserPoints,
+            addTikTokRecommendation,
+            getAllTikToks,
+            saveVote,
+            getVotes,
+            checkConnection
+        } from './firebase-functions.js';
+        
+        // Global state
+        window.firebaseConnected = false;
+        window.currentUser = null;
+        
+        // Check Firebase connection
+        checkConnection((connected) => {
+            window.firebaseConnected = connected;
+            if (connected) {
+                console.log('🔥 Firebase מחובר!');
+                document.getElementById('connectionStatus').textContent = '🟢 מחובר';
+                document.getElementById('connectionStatus').style.color = 'green';
+            } else {
+                console.log('❌ Firebase לא מחובר');
+                document.getElementById('connectionStatus').textContent = '🔴 לא מחובר';
+                document.getElementById('connectionStatus').style.color = 'red';
+            }
+        });
+        
+        // Override saveProfile function
+        window.originalSaveProfile = window.saveProfile;
+        window.saveProfile = async function() {
+            const nickname = document.getElementById('nicknameInput').value.trim();
+            if (!nickname) {
+                alert('אנא הכנס כינוי');
+                return;
+            }
+            
+            window.currentUser = {
+                nickname: nickname,
+                avatar: window.selectedAvatar,
+                points: 0
+            };
+            
+            // Save to Firebase
+            try {
+                await saveUserProfile(window.currentUser);
+                console.log('✅ פרופיל נשמר ב-Firebase');
+            } catch (error) {
+                console.error('❌ שגיאה בשמירת פרופיל:', error);
+            }
+            
+            // Save to localStorage as backup
+            localStorage.setItem('spainUser', JSON.stringify(window.currentUser));
+            
+            document.getElementById('profileModal').classList.add('hidden');
+            document.getElementById('userBadge').style.display = 'flex';
+            document.getElementById('userAvatarDisplay').textContent = window.selectedAvatar;
+            document.getElementById('userNameDisplay').textContent = nickname;
+            
+            // Load leaderboard
+            loadLeaderboard();
+        };
+        
+        // Override addTikTok function
+        window.originalAddTikTok = window.addTikTok;
+        window.addTikTok = async function() {
+            if (!window.currentUser) {
+                alert('אנא הירשם תחילה!');
+                return;
+            }
+            
+            const title = prompt('שם המקום/האטרקציה:');
+            if (!title) return;
+            
+            const link = prompt('קישור לסרטון (TikTok/Instagram/YouTube):');
+            if (!link) return;
+            
+            const description = prompt('תאור קצר:');
+            
+            const recommendation = {
+                title, 
+                link, 
+                description, 
+                user: window.currentUser.nickname,
+                avatar: window.currentUser.avatar
+            };
+            
+            try {
+                await addTikTokRecommendation(recommendation);
+                alert('ההמלצה נוספה! 🎉\n\nכל המשפחה יכולה לראות אותה עכשיו!');
+                console.log('✅ המלצה נשמרה ב-Firebase');
+            } catch (error) {
+                console.error('❌ שגיאה בשמירת המלצה:', error);
+                alert('שגיאה: ' + error.message);
+            }
+        };
+        
+        // Load TikToks from Firebase
+        window.loadFirebaseTikToks = function() {
+            getAllTikToks((tiktoks) => {
+                const grid = document.getElementById('tiktokGrid');
+                
+                // Keep add button
+                const addBtn = grid.querySelector('.add-tiktok');
+                
+                // Clear existing cards (except samples and add button)
+                const existingCards = grid.querySelectorAll('.tiktok-card');
+                existingCards.forEach(card => {
+                    if (!card.textContent.includes('דוגמה')) {
+                        card.remove();
+                    }
+                });
+                
+                tiktoks.forEach(tt => {
+                    const card = document.createElement('div');
+                    card.className = 'tiktok-card';
+                    card.innerHTML = `
+                        <h4>${tt.title}</h4>
+                        <p>${tt.description || ''}</p>
+                        <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">${tt.avatar || '👤'} הומלץ ע"י ${tt.user}</p>
+                        <a href="${tt.link}" target="_blank">צפה בסרטון →</a>
+                    `;
+                    grid.insertBefore(card, addBtn);
+                });
+                
+                console.log(`📱 נטענו ${tiktoks.length} המלצות מFirebase`);
+            });
+        };
+        
+        // Load leaderboard from Firebase
+        window.loadLeaderboard = function() {
+            getAllUsers((users) => {
+                const sorted = users.sort((a, b) => b.points - a.points).slice(0, 5);
+                const leaderboardDiv = document.getElementById('leaderboardFirebase');
+                
+                if (!leaderboardDiv) return;
+                
+                const medals = ['👑', '🥈', '🥉', '4️⃣', '5️⃣'];
+                leaderboardDiv.innerHTML = sorted.map((user, idx) => `
+                    <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+                        <span style="font-size: 3rem;">${medals[idx]}</span>
+                        <span style="font-size: 2.5rem;">${user.avatar}</span>
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 1.5rem; font-weight: 700;">${user.nickname}</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: #ffd700;">${user.points} נקודות</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                console.log(`🏆 טבלת מובילים: ${sorted.length} משתמשים`);
+            });
+        };
+        
+        // Initialize Firebase data on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (window.firebaseConnected) {
+                    window.loadFirebaseTikToks();
+                    window.loadLeaderboard();
+                }
+            }, 2000);
+        });
+    </script>
+    
+    <!-- Connection Status Indicator -->
+    <div style="position: fixed; bottom: 80px; right: 20px; background: white; padding: 0.5rem 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); font-size: 0.85rem; z-index: 998;">
+        <span id="connectionStatus">⏳ מתחבר...</span>
+    </div>
+    
 </body>
 </html>
