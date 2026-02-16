@@ -3,220 +3,1450 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPAIN 2026 | The Ultimate Family Experience</title>
+    <title>VAMOS עושים את ספרד! | Spain 2026</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Assistant:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&family=Assistant:wght@400;700&display=swap');
         
-        :root {
-            --primary: #ff3e3e;
-            --secondary: #00d4ff;
-            --dark: #0f172a;
-            --glass: rgba(255, 255, 255, 0.08);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Assistant', sans-serif; background: var(--dark); color: white; margin: 0; line-height: 1.6; }
-
-        /* Navigation */
-        nav { position: sticky; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); padding: 1rem; display: flex; justify-content: center; gap: 1.2rem; border-bottom: 1px solid var(--glass); }
-        nav a { color: #888; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-        nav a:active { color: var(--secondary); }
-
-        /* Hero */
-        .hero { height: 40vh; background: linear-gradient(rgba(15, 23, 42, 0.7), var(--dark)), url('https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .hero h1 { font-size: 3rem; font-family: 'Outfit'; margin: 0; }
-
-        /* Logistics Section */
-        .logistics { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; padding: 2rem; }
-        .info-card { background: var(--glass); padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
-
-        /* Timeline Items */
-        .timeline { padding: 2rem; max-width: 800px; margin: 0 auto; }
-        .day-header { border-right: 4px solid var(--secondary); padding-right: 15px; margin: 2rem 0 1rem; color: var(--secondary); }
-        .event-card { background: var(--glass); margin-bottom: 1rem; padding: 1.5rem; border-radius: 18px; position: relative; }
-        .event-time { color: var(--secondary); font-weight: 800; font-size: 0.9rem; display: block; margin-bottom: 5px; }
-        .event-card h4 { margin: 0; font-size: 1.2rem; color: #fff; }
-        .event-card p { margin: 5px 0; font-size: 0.95rem; opacity: 0.8; }
         
-        .parents-only { border: 2px solid var(--primary); background: rgba(255, 62, 62, 0.1); }
-        .highlight { color: #ffcc00; font-weight: bold; }
-
-        /* Challenges Section */
-        .challenges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; padding: 2rem; }
-        .challenge-box { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #000; padding: 1rem; border-radius: 15px; text-align: center; font-weight: 700; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-
-        /* Hub Buttons */
-        .hub { padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
-        .btn { display: block; text-align: center; padding: 1.2rem; border-radius: 15px; text-decoration: none; font-weight: 800; }
-        .btn-photos { background: #4285F4; color: white; }
-        .btn-spotify { background: #1DB954; color: white; }
-        .btn-wa { background: #25D366; color: white; }
-
-        @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; } }
+        body {
+            font-family: 'Heebo', 'Assistant', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section - More Elegant */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="white" opacity="0.3"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            z-index: 1;
+            max-width: 1200px;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 400;
+        }
+        
+        /* Info Cards - Trip Details */
+        .trip-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            max-width: 1200px;
+        }
+        
+        .info-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            color: #2c3e50;
+            text-align: right;
+        }
+        
+        .info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #667eea;
+            font-weight: 700;
+        }
+        
+        .info-card p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        .info-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .info-card a:hover {
+            color: #764ba2;
+        }
+        
+        .info-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Countdown */
+        .countdown {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .countdown-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.2rem;
+            min-width: 90px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            color: white;
+        }
+        
+        .countdown-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Heebo', sans-serif;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.98);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+        
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #667eea;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Section Styles */
+        section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        /* User Profile Modal */
+        .profile-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        
+        .profile-modal.hidden {
+            display: none;
+        }
+        
+        .profile-form {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .profile-form h2 {
+            margin-bottom: 2rem;
+            color: #667eea;
+        }
+        
+        .profile-form input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-family: 'Heebo', sans-serif;
+        }
+        
+        .avatar-selection {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .avatar-option {
+            font-size: 2.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .avatar-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .avatar-option.selected {
+            border-color: #667eea;
+            background: rgba(102,126,234,0.1);
+        }
+        
+        /* User Badge */
+        .user-badge {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: white;
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            z-index: 999;
+            font-weight: 600;
+        }
+        
+        .user-avatar {
+            font-size: 1.5rem;
+        }
+        
+        /* Itinerary Cards - More Elegant */
+        .day-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .day-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .day-date {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .day-emoji {
+            font-size: 2rem;
+        }
+        
+        .day-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .activities {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .activities li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        .activities li:last-child {
+            border-bottom: none;
+        }
+        
+        .time {
+            font-weight: 700;
+            color: #667eea;
+            margin-left: 0.5rem;
+        }
+        
+        .activities a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .activities a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Embedded Map */
+        .day-map {
+            margin-top: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .day-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Vote Section */
+        .vote-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .vote-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .vote-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .vote-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .vote-btn {
+            padding: 1rem;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Heebo', sans-serif;
+            font-size: 0.95rem;
+        }
+        
+        .vote-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .vote-btn.voted {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .vote-count {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        /* Challenges */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .challenge-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .challenge-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .challenge-reward {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Leaderboard - Kahoot Style */
+        .leaderboard-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+            color: white;
+        }
+        
+        .leaderboard-container h3 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .leaderboard-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .leaderboard-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .leaderboard-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.02);
+        }
+        
+        .leaderboard-rank {
+            font-size: 3rem;
+        }
+        
+        .leaderboard-avatar {
+            font-size: 2.5rem;
+        }
+        
+        .leaderboard-info {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .leaderboard-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .leaderboard-points {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+        }
+        
+        /* Trivia */
+        .trivia-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .trivia-question {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .trivia-options {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .trivia-option {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+        
+        .trivia-option:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .trivia-score {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .trip-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-badge {
+                top: 10px;
+                left: 10px;
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+            
+            .day-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .avatar-selection {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
-
-    <nav>
-        <a href="#logistics">מידע</a>
-        <a href="#itinerary">לו"ז מלא</a>
-        <a href="#challenges">משימות</a>
-        <a href="#hub">האלבום</a>
-    </nav>
-
-    <div class="hero">
-        <h1 id="user-greeting">SPAIN 2026</h1>
-        <p style="letter-spacing: 3px; color: var(--secondary);">FAMILY ROAD TRIP</p>
+    <!-- User Profile Modal -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-form">
+            <h2>🎉 ברוכים הבאים לטיול!</h2>
+            <p style="margin-bottom: 2rem; color: #666;">בחרו כינוי ואווטאר</p>
+            
+            <input type="text" id="nicknameInput" placeholder="הכינוי שלך..." maxlength="15">
+            
+            <p style="margin-top: 1.5rem; margin-bottom: 1rem; font-weight: 600;">בחרו אייקון:</p>
+            <div class="avatar-selection">
+                <div class="avatar-option" data-avatar="🦁" onclick="selectAvatar('🦁')">🦁</div>
+                <div class="avatar-option" data-avatar="🐯" onclick="selectAvatar('🐯')">🐯</div>
+                <div class="avatar-option" data-avatar="🦊" onclick="selectAvatar('🦊')">🦊</div>
+                <div class="avatar-option" data-avatar="🐻" onclick="selectAvatar('🐻')">🐻</div>
+                <div class="avatar-option" data-avatar="🐼" onclick="selectAvatar('🐼')">🐼</div>
+                <div class="avatar-option" data-avatar="🐨" onclick="selectAvatar('🐨')">🐨</div>
+                <div class="avatar-option" data-avatar="🐸" onclick="selectAvatar('🐸')">🐸</div>
+                <div class="avatar-option" data-avatar="🦄" onclick="selectAvatar('🦄')">🦄</div>
+                <div class="avatar-option" data-avatar="🐉" onclick="selectAvatar('🐉')">🐉</div>
+                <div class="avatar-option" data-avatar="🦅" onclick="selectAvatar('🦅')">🦅</div>
+                <div class="avatar-option" data-avatar="🦋" onclick="selectAvatar('🦋')">🦋</div>
+                <div class="avatar-option" data-avatar="🐙" onclick="selectAvatar('🐙')">🐙</div>
+                <div class="avatar-option" data-avatar="🦑" onclick="selectAvatar('🦑')">🦑</div>
+                <div class="avatar-option" data-avatar="🦈" onclick="selectAvatar('🦈')">🦈</div>
+                <div class="avatar-option" data-avatar="🐬" onclick="selectAvatar('🐬')">🐬</div>
+                <div class="avatar-option" data-avatar="🦀" onclick="selectAvatar('🦀')">🦀</div>
+                <div class="avatar-option" data-avatar="🌟" onclick="selectAvatar('🌟')">🌟</div>
+                <div class="avatar-option" data-avatar="⚡" onclick="selectAvatar('⚡')">⚡</div>
+                <div class="avatar-option" data-avatar="🔥" onclick="selectAvatar('🔥')">🔥</div>
+                <div class="avatar-option" data-avatar="🎸" onclick="selectAvatar('🎸')">🎸</div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="saveProfile()" style="width: 100%; margin-top: 2rem;">
+                בואו נתחיל! 🚀
+            </button>
+        </div>
     </div>
-
-    <section id="logistics" class="logistics">
-        <div class="info-card">
-            <h3>✈️ טיסות (Iberia)</h3>
-            <p><strong>27.2:</strong> IB1874 (06:00) | <strong>6.3:</strong> IB1873 (17:00)</p>
-            <a href="https://www.iberia.com/il/online-checkin/" target="_blank" style="color: var(--secondary);">קישור לצ'ק-אין (יום לפני)</a>
+    
+    <!-- User Badge -->
+    <div class="user-badge" id="userBadge" style="display: none;">
+        <span class="user-avatar" id="userAvatarDisplay">🦁</span>
+        <span id="userNameDisplay">משתמש</span>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>VAMOS עושים את ספרד!</h1>
+            <p class="subtitle">27 פברואר - 6 מרץ 2026 | Madrid × Valencia</p>
+            
+            <!-- Trip Info Cards -->
+            <div class="trip-info">
+                <!-- Flights -->
+                <div class="info-card">
+                    <div class="info-icon">✈️</div>
+                    <h3>טיסות איבריה</h3>
+                    <p><strong>הלוך:</strong> IB1874 - 27/02 06:00</p>
+                    <p><strong>חזור:</strong> IB1873 - 06/03 17:00</p>
+                    <a href="https://www.iberia.com/il/en/manage-your-booking/" target="_blank">צ'ק-אין אונליין →</a>
+                </div>
+                
+                <!-- Hotels -->
+                <div class="info-card">
+                    <div class="info-icon">🏨</div>
+                    <h3>מלונות</h3>
+                    <p><strong>מדריד:</strong> <a href="https://www.actahotels.com/hoteles/hotel-acta-piramides" target="_blank">ACTA PIRÁMIDES</a></p>
+                    <p>צ'ק-אין: 27/02 | צ'ק-אאוט: 02/03</p>
+                    <p><strong>ולנסיה:</strong> <a href="https://monsuitescatedral.com/" target="_blank">Mon Suites Catedral</a></p>
+                    <p>צ'ק-אין: 02/03 | צ'ק-אאוט: 05/03</p>
+                    <a href="https://www.actahotels.com/en/online-check-in" target="_blank">צ'ק-אין מקדים ACTA →</a>
+                </div>
+                
+                <!-- Car Rental -->
+                <div class="info-card">
+                    <div class="info-icon">🚗</div>
+                    <h3>השכרת רכב</h3>
+                    <p><strong>תאריך:</strong> 02/03/2026</p>
+                    <p><strong>מיקום:</strong> תחנת הרכבת מדריד</p>
+                    <p>13 C. de Cenicero, Parking Homely Planeta -3</p>
+                    <a href="https://www.google.com/maps/place/Calle+de+Cenicero,+13,+Arganzuela,+28045+Madrid" target="_blank">נווט למיקום →</a>
+                </div>
+                
+                <!-- Photo Album -->
+                <div class="info-card">
+                    <div class="info-icon">📸</div>
+                    <h3>אלבום התמונות שלנו</h3>
+                    <p>העלו תמונות מהטיול!</p>
+                    <a href="https://photos.app.goo.gl/zNftUhkK2adw55bc8" target="_blank">פתח אלבום Google Photos →</a>
+                </div>
+            </div>
+            
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">--</span>
+                    <span class="countdown-label">ימים</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">--</span>
+                    <span class="countdown-label">שעות</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">--</span>
+                    <span class="countdown-label">דקות</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">--</span>
+                    <span class="countdown-label">שניות</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#itinerary" class="btn btn-primary">📅 התכנית המלאה</a>
+                <a href="#vote" class="btn btn-secondary">🗳️ הצביעו</a>
+                <a href="https://open.spotify.com/playlist/37i9dQZF1E4ukXMXOYaJAQ" target="_blank" class="btn btn-secondary">🎵 פלייליסט</a>
+            </div>
         </div>
-        <div class="info-card">
-            <h3>🏨 מלונות</h3>
-            <p><strong>מדריד:</strong> Acta Pirámides</p>
-            <p><strong>ולנסיה:</strong> Mon Suites Catedral</p>
+    </div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#itinerary" class="nav-link">📅 לוח זמנים</a>
+            <a href="#vote" class="nav-link">🗳️ הצבעות</a>
+            <a href="#challenges" class="nav-link">🎯 אתגרים</a>
+            <a href="#trivia" class="nav-link">🧠 טריוויה</a>
+            <a href="https://photos.app.goo.gl/zNftUhkK2adw55bc8" target="_blank" class="nav-link">📸 תמונות</a>
         </div>
-        <div class="info-card">
-            <h3>🚗 רכב</h3>
-            <p><strong>איסוף:</strong> 2.3 | 09:00 | Madrid Train Station</p>
-        </div>
-    </section>
-
-    <section id="itinerary" class="timeline">
+    </nav>
+    
+    <!-- Itinerary Section -->
+    <section id="itinerary">
+        <h2>📅 התכנית שלנו</h2>
         
-        <div class="day-header"><h3>יום שישי 27.2 | Hola Madrid! 🇪🇸</h3></div>
-        <div class="event-card">
-            <span class="event-time">13:30</span>
-            <h4>StreetXO 🍜</h4>
-            <p>ארוחת פיוז'ן מטורפת. אין הזמנות - באים ומחכים!</p>
-        </div>
-        <div class="event-card">
-            <span class="event-time">16:00</span>
-            <h4>Chocolatería San Ginés 🍫</h4>
-            <p>הצ'ורוס הכי אגדי בעולם. חובה לטעום!</p>
-        </div>
-        <div class="event-card">
-            <span class="event-time">20:00</span>
-            <h4>WAH Madrid 🎭</h4>
-            <p><span class="highlight">Highlight!</span> מופע מוזיקלי וקולינרי מטורף.</p>
-        </div>
-
-        <div class="day-header"><h3>יום שבת 28.2 | Action Day 🎮</h3></div>
-        <div class="event-card">
-            <span class="event-time">14:30</span>
-            <h4>Mercado de San Miguel 🍢</h4>
-            <p>שוק טאפאס גורמה מדהים בלב העיר.</p>
-        </div>
-        <div class="event-card">
-            <span class="event-time">16:30</span>
-            <h4>Virtual Arena 🥽</h4>
-            <p>המרכז הכי גדול במדריד ל-VR. המתבגרים יעופו!</p>
-        </div>
-        <div class="event-card parents-only">
-            <span class="event-time">21:00</span>
-            <h4>Salmon Guru (הורים) 🍸</h4>
-            <p>קוקטיילים באחד הברים הטובים בעולם.</p>
-        </div>
-
-        <div class="day-header"><h3>יום ראשון 1.3 | יום אדרנלין 🎢</h3></div>
-        <div class="event-card">
-            <h4>בחירה: רכבת הרים! 🎢</h4>
-            <p>Parque de Atracciones (משפחתי) או Warner Bros (אקסטרים).</p>
-        </div>
-        <div class="event-card">
-            <span class="event-time">18:00</span>
-            <h4>Prison Island 🔐</h4>
-            <p>משימות צוות בסגנון Escape Room. מושלם ל-9 אנשים!</p>
-        </div>
-
-        <div class="day-header"><h3>יום שני 2.3 | הדרך לולנסיה 🏘️</h3></div>
-        <div class="event-card">
-            <span class="event-time">10:45</span>
-            <h4>Cuenca - הבתים התלויים 🏰</h4>
-            <p>עצירה מטורפת בעיר שעל המצוק. תמונות מהגשר התלוי!</p>
-        </div>
-        <div class="event-card">
-            <span class="event-time">20:00</span>
-            <h4>Voltereta Bali 🌴</h4>
-            <p>ארוחת ערב במסעדת ג'ונגל מעוצבת בולנסיה.</p>
-        </div>
-
-        <div class="day-header"><h3>יום שלישי 3.3 | פסטיבל Fallas + יום נישואין ❤️</h3></div>
-        <div class="event-card">
-            <span class="event-time">14:00</span>
-            <h4>MASCLETÀ 💥</h4>
-            <p>זיקוקים, רעש ואדרנלין בכיכר העיר. אל תאחרו!</p>
-        </div>
-        <div class="event-card">
-            <span class="event-time">18:30</span>
-            <h4>Gulliver Park 🎠</h4>
-            <p>מגלשות ענק על הפסל של גוליבר. הילדים ישתגעו.</p>
-        </div>
-        <div class="event-card parents-only">
-            <span class="event-time">בערב</span>
-            <h4>ארוחת יום נישואין (הורים בלבד) ❤️</h4>
-            <p>ארוחה רומנטית במסעדת Fierro. הילדים בבילוי בעיר.</p>
-        </div>
-
-        <div class="day-header"><h3>יום רביעי 4.3 | טבע וים 🌊</h3></div>
-        <div class="event-card">
-            <span class="event-time">10:00</span>
-            <h4>Bioparc Valencia 🦁</h4>
-            <p>גן חיות אפריקאי ללא כלובים. חוויה מדהימה.</p>
-        </div>
-        <div class="event-card">
-            <span class="event-time">13:30</span>
-            <h4>Albufera Lake ⛵</h4>
-            <p>שיט סירות באגם שבו המציאו את הפאיה.</p>
-        </div>
-
-        <div class="day-header"><h3>יום חמישי 5.3 | שופינג וחזרה 🛍️</h3></div>
-        <div class="event-card">
-            <h4>Las Rozas Village 🛍️</h4>
-            <p>אאוטלט יוקרה עם הנחות מטורפות (30-70%).</p>
-        </div>
-        <div class="event-card">
-            <span class="event-time">20:30</span>
-            <h4>Amazonico Madrid 🌴</h4>
-            <p>ארוחת פרידה חגיגית בעיצוב ג'ונגל.</p>
+        <div class="day-cards">
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date">27.02 יום א׳</div>
+                    <div class="day-emoji">✈️</div>
+                </div>
+                <h3 class="day-title">¡HOLA MADRID!</h3>
+                <ul class="activities">
+                    <li><span class="time">10:30</span> נחיתה בנמל באראחס</li>
+                    <li><span class="time">13:30</span> ארוחת צהריים ב-<a href="https://streetxo.com/madrid/en" target="_blank">StreetXO</a></li>
+                    <li><span class="time">16:00</span> <a href="https://www.musement.com/us/madrid/velazquez-tech-museum-entrance-tickets-420302/" target="_blank">Velázquez Tech Museum</a> - אמנות 360°</li>
+                    <li><span class="time">20:00</span> <a href="https://www.ifema.es/en/wah" target="_blank">WAH Show</a> - מופע מדהים!</li>
+                </ul>
+                <div class="day-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24310.896729729195!2d-3.7115208!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287e3b6e8f5b%3A0x400759aa3d40a367!2sMadrid%2C%20Spain!5e0!3m2!1sen!2sil!4v1620000000000!5m2!1sen!2sil" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date">28.02 יום ב׳</div>
+                    <div class="day-emoji">🏞️</div>
+                </div>
+                <h3 class="day-title">RETIRO & CITY VIBES</h3>
+                <ul class="activities">
+                    <li><span class="time">10:00</span> סיור Segway ב-<a href="https://www.google.com/maps/place/Parque+del+Retiro" target="_blank">Retiro Park</a></li>
+                    <li><span class="time">13:00</span> <a href="https://www.mercadodesanmiguel.es/en/" target="_blank">Mercado San Miguel</a> - אוכל רחוב</li>
+                    <li><span class="time">16:00</span> <a href="https://zerolatencyvr.com/en/madrid" target="_blank">Zero Latency VR</a> או <a href="https://www.esmadrid.com/en/tourist-information/virtual-arena" target="_blank">Virtual Arena</a></li>
+                    <li><span class="time">20:00</span> <a href="https://www.salmonguru.es/" target="_blank">Salmon Guru</a> - קוקטיילים (הורים)</li>
+                </ul>
+                <div class="day-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.5539229845805!2d-3.6844897!3d40.4152891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42288c20a6bf43%3A0x53526cd1b85dd9e6!2sRetiro%20Park!5e0!3m2!1sen!2sil!4v1620000000001!5m2!1sen!2sil" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date">01.03 יום ג׳</div>
+                    <div class="day-emoji">🎢</div>
+                </div>
+                <h3 class="day-title">ADRENALINE DAY!</h3>
+                <ul class="activities">
+                    <li><span class="time">10:00</span> אופציה A: <a href="https://www.parquedeatracciones.es/en/" target="_blank">Parque de Atracciones</a></li>
+                    <li><span class="time">10:00</span> אופציה B: <a href="https://www.parquewarner.com/en/" target="_blank">Warner Bros Park</a> (רכבות הרים!)</li>
+                    <li><span class="time">11:00</span> <a href="https://www.valor.es/en/chocolate-museum/" target="_blank">Museo del Chocolate</a></li>
+                    <li><span class="time">18:00</span> <a href="https://www.getyourguide.com/prison-island-madrid-l118435/" target="_blank">Prison Island</a> - Escape Room משפחתי!</li>
+                </ul>
+                <div class="day-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.8776538765!2d-3.7547289!3d40.4088571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228e7a9a50e7b%3A0x8e5c1e1f1e1e1e1e!2sParque%20de%20Atracciones%20de%20Madrid!5e0!3m2!1sen!2sil!4v1620000000002!5m2!1sen!2sil" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date">02.03 יום ד׳</div>
+                    <div class="day-emoji">🚗</div>
+                </div>
+                <h3 class="day-title">ROAD TRIP TO VALENCIA!</h3>
+                <ul class="activities">
+                    <li><span class="time">09:00</span> <a href="https://www.google.com/maps/place/Calle+de+Cenicero,+13,+Arganzuela,+28045+Madrid" target="_blank">איסוף רכב</a> + יציאה</li>
+                    <li><span class="time">11:30</span> עצירה ב-<a href="https://www.tripadvisor.com/Attraction_Review-g262065-d13306397-Reviews-Casas_Colgadas-Cuenca_Province_of_Cuenca_Castile_La_Mancha.html" target="_blank">Cuenca - בתים תלויים</a></li>
+                    <li><span class="time">16:00</span> הגעה לולנסיה + צ'ק-אין ב-<a href="https://monsuitescatedral.com/" target="_blank">Mon Suites</a></li>
+                    <li><span class="time">20:00</span> <a href="https://www.volteretavalencia.com/" target="_blank">Voltereta</a> - ארוחת Bali Style</li>
+                </ul>
+                <div class="day-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d778793.6871956279!2d-2.7547289!3d39.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0xd42287c20a6bf43%3A0x53526cd1b85dd9e6!2sMadrid!3m2!1d40.4167754!2d-3.7037902!4m5!1s0xd604f4cf0efb06f%3A0xb4a351011f7f1feb!2sValencia!3m2!1d39.4699075!2d-0.3762881!5e0!3m2!1sen!2sil!4v1620000000003!5m2!1sen!2sil" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date">03.03 יום ה׳</div>
+                    <div class="day-emoji">🎉</div>
+                </div>
+                <h3 class="day-title">FALLAS + יום נישואין! 💕</h3>
+                <ul class="activities">
+                    <li><span class="time">10:00</span> <a href="https://www.oceanografic.org/en/" target="_blank">Oceanogràfic</a> - האוקיאנריום הכי גדול באירופה</li>
+                    <li><span class="time">14:00</span> <a href="https://www.visitvalencia.com/en/what-to-do-valencia/events-calendar/fallas-festival" target="_blank">Mascletà</a> - זיקוקים משוגעים 💥</li>
+                    <li><span class="time">17:00</span> <a href="https://www.spain.info/en/places-of-interest/gulliver-park/" target="_blank">Gulliver Park</a> - מגלשות ענק</li>
+                    <li><span class="time">20:00</span> ארוחת יום נישואין <strong>(הורים בלבד!)</strong> ב-<a href="https://www.fierrorestaurante.com/" target="_blank">Fierro</a> 🍽️💑</li>
+                </ul>
+                <div class="day-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.8875645891805!2d-0.3762881!3d39.4699075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f4cf0efb06f%3A0xb4a351011f7f1feb!2sValencia%2C%20Spain!5e0!3m2!1sen!2sil!4v1620000000004!5m2!1sen!2sil" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Day 6 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date">04.03 יום ו׳</div>
+                    <div class="day-emoji">🦁</div>
+                </div>
+                <h3 class="day-title">WILDLIFE & WATER</h3>
+                <ul class="activities">
+                    <li><span class="time">10:00</span> <a href="https://bioparcvalencia.es/en/" target="_blank">Bioparc Valencia</a> - גן חיות ללא כלובים</li>
+                    <li><span class="time">14:00</span> צהריים + שופינג ב-<a href="https://www.google.com/maps/place/Calle+de+Col%C3%B3n,+Valencia,+Spain" target="_blank">Calle Colón</a></li>
+                    <li><span class="time">17:00</span> <a href="https://www.getyourguide.com/albufera-l87843/cruises-boat-tours-tc48/" target="_blank">Albufera Lake Sunset Tour</a> 🌅</li>
+                    <li><span class="time">19:00</span> חוף <a href="https://www.google.com/maps/place/Playa+de+la+Malvarrosa" target="_blank">Malvarrosa</a></li>
+                </ul>
+                <div class="day-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24639.552891891!2d-0.3262881!3d39.4499075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f4444444444%3A0x5555555555555555!2sAlbufera%20Natural%20Park!5e0!3m2!1sen!2sil!4v1620000000005!5m2!1sen!2sil" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Day 7 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date">05.03 יום ש׳</div>
+                    <div class="day-emoji">🛍️</div>
+                </div>
+                <h3 class="day-title">BACK TO MADRID</h3>
+                <ul class="activities">
+                    <li><span class="time">09:30</span> נסיעה חזרה למדריד</li>
+                    <li><span class="time">13:00</span> <a href="https://www.thebicestercollection.com/las-rozas-village/en/" target="_blank">Las Rozas Village</a> - אאוטלט (30-70% הנחה)</li>
+                    <li><span class="time">20:30</span> ארוחת פרידה ב-<a href="https://amazonicomadrid.com/" target="_blank">Amazonico</a> - חוויית ג'ונגל!</li>
+                </ul>
+                <div class="day-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.8775645891805!2d-3.8762881!3d40.5199075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4188e7a9a50e7b%3A0x7777777777777777!2sLas%20Rozas%20Village!5e0!3m2!1sen!2sil!4v1620000000006!5m2!1sen!2sil" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Day 8 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date">06.03 יום א׳</div>
+                    <div class="day-emoji">🏠</div>
+                </div>
+                <h3 class="day-title">ADIÓS ESPAÑA 😢</h3>
+                <ul class="activities">
+                    <li><span class="time">10:00</span> <a href="https://www.nomadmuseo.art/" target="_blank">Nomad Museo Inmersivo</a> - AI + אמנות</li>
+                    <li><span class="time">12:00</span> <a href="https://www.google.com/maps/place/Templo+de+Debod" target="_blank">Temple of Debod</a> (חינם!)</li>
+                    <li><span class="time">13:00</span> ארוחת צהריים אחרונה ב-<a href="https://www.google.com/maps/place/Gran+V%C3%ADa,+Madrid,+Spain" target="_blank">Gran Vía</a></li>
+                    <li><span class="time">17:00</span> טיסה IB1873 חזרה הביתה 🇮🇱</li>
+                </ul>
+                <div class="day-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2!2d-3.7!3d40.424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287777777777%3A0x8888888888888888!2sTemplo%20de%20Debod!5e0!3m2!1sen!2sil!4v1620000000007!5m2!1sen!2sil" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
         </div>
     </section>
-
+    
+    <!-- Vote Section -->
+    <section id="vote">
+        <h2>🗳️ אתם בוחרים!</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #666;">
+            כל קול חשוב! הצביעו על הפעילויות שהכי מעניינות אתכם
+        </p>
+        
+        <div class="vote-container">
+            <!-- Vote 1 -->
+            <div class="vote-card">
+                <h3>🎢 יום האדרנלין (1 במרץ)</h3>
+                <div class="vote-options">
+                    <button class="vote-btn" onclick="vote('day3', 'warner', 'Warner Bros Park')">
+                        Warner Bros Park<br><small>(רכבות הרים + DC Comics)</small>
+                    </button>
+                    <button class="vote-btn" onclick="vote('day3', 'atracciones', 'Parque de Atracciones')">
+                        Parque de Atracciones<br><small>(קרוב יותר למלון)</small>
+                    </button>
+                    <button class="vote-btn" onclick="vote('day3', 'museums', 'Museum of Illusions + Chocolate')">
+                        Museum of Illusions + Chocolate<br><small>(פחות מתיש)</small>
+                    </button>
+                </div>
+                <div class="vote-count" id="vote-day3">0 הצבעות</div>
+            </div>
+            
+            <!-- Vote 2 -->
+            <div class="vote-card">
+                <h3>🍽️ ארוחת יום נישואין (3 במרץ) - הורים בלבד 💑</h3>
+                <div class="vote-options">
+                    <button class="vote-btn" onclick="vote('anniversary', 'vertical', 'Restaurante Vertical')">
+                        Restaurante Vertical<br><small>(קומה 16, נוף מטורף)</small>
+                    </button>
+                    <button class="vote-btn" onclick="vote('anniversary', 'fierro', 'Fierro')">
+                        Fierro<br><small>(אינטימי, מרכז העיר)</small>
+                    </button>
+                    <button class="vote-btn" onclick="vote('anniversary', 'catamaran', 'Catamaran Sunset Cruise')">
+                        Catamaran Sunset Cruise<br><small>(שייט רומנטי)</small>
+                    </button>
+                </div>
+                <div class="vote-count" id="vote-anniversary">0 הצבעות</div>
+            </div>
+            
+            <!-- Vote 3 -->
+            <div class="vote-card">
+                <h3>🛍️ הקניות ב-Las Rozas</h3>
+                <div class="vote-options">
+                    <button class="vote-btn" onclick="vote('shopping', 'yes', 'כן - קניות באאוטלט')">
+                        כן! מעולה (30-70% הנחה)<br><small>Gucci, Prada, Nike...</small>
+                    </button>
+                    <button class="vote-btn" onclick="vote('shopping', 'no', 'לא - עוד זמן בולנסיה')">
+                        לא, תנו לנו עוד זמן בולנסיה<br><small>(חוף/פארקים)</small>
+                    </button>
+                </div>
+                <div class="vote-count" id="vote-shopping">0 הצבעות</div>
+            </div>
+            
+            <!-- Vote 4 -->
+            <div class="vote-card">
+                <h3>🌅 שקיעה ב-Albufera (4 במרץ)</h3>
+                <div class="vote-options">
+                    <button class="vote-btn" onclick="vote('albufera', 'boat', 'שיט סירה + שקיעה')">
+                        שיט סירה + שקיעה<br><small>(90 דקות, 15€)</small>
+                    </button>
+                    <button class="vote-btn" onclick="vote('albufera', 'beach', 'חוף Malvarrosa')">
+                        חוף Malvarrosa<br><small>(רחצה + משחקים)</small>
+                    </button>
+                    <button class="vote-btn" onclick="vote('albufera', 'both', 'שניהם!')">
+                        שניהם!<br><small>(שיט 17:00, חוף 19:00)</small>
+                    </button>
+                </div>
+                <div class="vote-count" id="vote-albufera">0 הצבעות</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Challenges Section -->
     <section id="challenges">
-        <h2 style="text-align: center;">🎯 האתגרים הגדולים</h2>
-        <p style="text-align: center; opacity: 0.7;">משימה אחת ביום - מי אוסף הכי הרבה נקודות?</p>
+        <h2>🎯 אתגרים יומיים</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #666;">
+            כל משימה = נקודות! מי שמרוויח הכי הרבה מקבל פרס מפתיע 🎁
+        </p>
+        
         <div class="challenges-grid">
-            <div class="challenge-box">📸 סלפי עם פסל רחוב וכל ה-9!</div>
-            <div class="challenge-box">🗣️ להזמין ארוחה בספרדית בלבד</div>
-            <div class="challenge-box">🕺 ריקוד 10 שניות באמצע הרחוב</div>
-            <div class="challenge-box">🍽️ וידאו תגובה לאוכל הכי מוזר</div>
+            <div class="challenge-card">
+                <h4>📸 תצלום יום</h4>
+                <p>תמונה הכי יצירתית של היום<br>(לפחות 5 אנשים בתמונה!)</p>
+                <div class="challenge-reward">⭐ 100 נקודות</div>
+            </div>
+            
+            <div class="challenge-card">
+                <h4>🗣️ דבר ספרדית</h4>
+                <p>הזמן ארוחה בספרדית<br>ללא עזרת אנגלית/עברית</p>
+                <div class="challenge-reward">⭐ 150 נקודות</div>
+            </div>
+            
+            <div class="challenge-card">
+                <h4>🎭 פוזה מטורפת</h4>
+                <p>תמונה עם פסל רחוב<br>(חייב לחקות את הפוזה שלו)</p>
+                <div class="challenge-reward">⭐ 80 נקודות</div>
+            </div>
+            
+            <div class="challenge-card">
+                <h4>🍽️ אוכל משוגע</h4>
+                <p>נסה משהו שמעולם לא אכלת<br>(חייב וידאו תגובה)</p>
+                <div class="challenge-reward">⭐ 120 נקודות</div>
+            </div>
+            
+            <div class="challenge-card">
+                <h4>💃 ריקוד פומבי</h4>
+                <p>10 שניות של ריקוד ברחוב<br>(צריך קהל!)</p>
+                <div class="challenge-reward">⭐ 200 נקודות</div>
+            </div>
+            
+            <div class="challenge-card">
+                <h4>🎨 אומנות רחוב</h4>
+                <p>מצא את אמן הרחוב הכי מגניב<br>וצלם איתו סלפי</p>
+                <div class="challenge-reward">⭐ 90 נקודות</div>
+            </div>
+            
+            <div class="challenge-card">
+                <h4>🏃 מרוץ נקודות</h4>
+                <p>הראשון שמגיע לנקודה הבאה<br>במפה (לפחות 5 אנשים מתחרים)</p>
+                <div class="challenge-reward">⭐ 100 נקודות</div>
+            </div>
+            
+            <div class="challenge-card">
+                <h4>🎤 שיר ספרדי</h4>
+                <p>תשיר 30 שניות של שיר ספרדי<br>(וידאו חובה)</p>
+                <div class="challenge-reward">⭐ 180 נקודות</div>
+            </div>
+            
+            <div class="challenge-card">
+                <h4>🔍 מצוא חבוי</h4>
+                <p>מצא את ה-Easter Egg המוסתר<br>באחת האטרקציות</p>
+                <div class="challenge-reward">⭐ 300 נקודות 🏆</div>
+            </div>
+        </div>
+        
+        <!-- Leaderboard - Kahoot Style -->
+        <div class="leaderboard-container">
+            <h3>🏆 טבלת המובילים</h3>
+            <div class="leaderboard-list" id="leaderboard">
+                <div class="leaderboard-item">
+                    <span class="leaderboard-rank">👑</span>
+                    <span class="leaderboard-avatar">🦁</span>
+                    <div class="leaderboard-info">
+                        <div class="leaderboard-name">מקום ראשון</div>
+                        <div class="leaderboard-points">0 נקודות</div>
+                    </div>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="leaderboard-rank">🥈</span>
+                    <span class="leaderboard-avatar">🐯</span>
+                    <div class="leaderboard-info">
+                        <div class="leaderboard-name">מקום שני</div>
+                        <div class="leaderboard-points">0 נקודות</div>
+                    </div>
+                </div>
+                <div class="leaderboard-item">
+                    <span class="leaderboard-rank">🥉</span>
+                    <span class="leaderboard-avatar">🦊</span>
+                    <div class="leaderboard-info">
+                        <div class="leaderboard-name">מקום שלישי</div>
+                        <div class="leaderboard-points">0 נקודות</div>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; text-align: center; opacity: 0.9;">
+                💡 רוצים להוסיף נקודות? שלחו תמונה/וידאו של האתגר ל<a href="https://photos.app.goo.gl/zNftUhkK2adw55bc8" target="_blank" style="color: #ffd700;">אלבום המשותף</a>
+            </p>
         </div>
     </section>
-
-    <section id="hub" class="hub">
-        <h2 style="text-align: center;">📱 המרכז החברתי</h2>
-        <a href="https://photos.app.goo.gl/zNftUhkK2adw55bc8" target="_blank" class="btn btn-photos">📸 אלבום תמונות משותף</a>
-        <a href="http://googleusercontent.com/spotify.com/16" target="_blank" class="btn btn-spotify">🎵 פלייליסט הטיול (Spain 2026)</a>
-        <a href="https://wa.me/?text=מצאתי אטרקציה מטורפת לאתר הטיול: " target="_blank" class="btn btn-wa">📲 שלח לינק לתוכן חדש (TikTok)</a>
+    
+    <!-- Trivia Section -->
+    <section id="trivia">
+        <h2>🧠 Trivia: כמה אתם יודעים על ספרד?</h2>
+        
+        <div class="trivia-container">
+            <div class="trivia-question" id="trivia-question">
+                מה השם של הפסטיבל המפורסם בולנסיה ב-3 במרץ?
+            </div>
+            
+            <div class="trivia-options" id="trivia-options">
+                <div class="trivia-option" onclick="checkTrivia('wrong')">
+                    La Tomatina 🍅
+                </div>
+                <div class="trivia-option" onclick="checkTrivia('wrong')">
+                    Running of the Bulls 🐂
+                </div>
+                <div class="trivia-option" onclick="checkTrivia('correct')">
+                    Las Fallas 🔥
+                </div>
+                <div class="trivia-option" onclick="checkTrivia('wrong')">
+                    Semana Santa 🙏
+                </div>
+            </div>
+            
+            <div class="trivia-score">
+                ניקוד: <span id="trivia-score">0</span>/10
+            </div>
+            
+            <button class="btn btn-primary" onclick="nextTrivia()" style="width: 100%; margin-top: 2rem;">
+                שאלה הבאה ➡️
+            </button>
+        </div>
     </section>
-
+    
+    <!-- Footer -->
     <footer>
-        <p>SPAIN 2026 | THE FAMILY TOUR</p>
+        <div class="footer-content">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">VAMOS עושים את ספרד! 🇪🇸</h3>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
+                27 פברואר - 6 מרץ, 2026 | מדריד × ולנסיה
+            </p>
+            
+            <div class="footer-links">
+                <a href="https://www.ifema.es/en/wah" target="_blank">WAH Show</a>
+                <a href="https://www.oceanografic.org/en/" target="_blank">Oceanogràfic</a>
+                <a href="https://www.visitvalencia.com/en/what-to-do-valencia/events-calendar/fallas-festival" target="_blank">Fallas Festival</a>
+                <a href="https://www.parquewarner.com/en/" target="_blank">Warner Park</a>
+                <a href="https://amazonicomadrid.com/" target="_blank">Amazonico</a>
+                <a href="https://photos.app.goo.gl/zNftUhkK2adw55bc8" target="_blank">📸 אלבום תמונות</a>
+            </div>
+            
+            <div style="margin-top: 2rem; font-size: 1rem; opacity: 0.7;">
+                <p>📱 הורידו את אפליקציית <a href="https://play.google.com/store/apps/details?id=com.drassapps.fallasvlc" target="_blank" style="color: #667eea;">Fallas 2026</a></p>
+                <p>🎵 <a href="https://open.spotify.com/playlist/37i9dQZF1E4ukXMXOYaJAQ" target="_blank" style="color: #667eea;">פלייליסט ספרד 2026</a></p>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.6;">
+                Made with 💜 for the best crew ever | © 2026
+            </p>
+        </div>
     </footer>
-
+    
+    <!-- JavaScript -->
     <script>
-        // Profile Logic
-        if(!localStorage.getItem('trip_user')){
-            let n = prompt("מה הכינוי שלך לטיול?");
-            if(n) localStorage.setItem('trip_user', n);
+        // User Profile System
+        let selectedAvatar = '🦁';
+        let currentUser = null;
+        
+        function selectAvatar(emoji) {
+            selectedAvatar = emoji;
+            document.querySelectorAll('.avatar-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
         }
-        if(localStorage.getItem('trip_user')){
-            document.getElementById('user-greeting').innerText = "VAMOS " + localStorage.getItem('trip_user').toUpperCase() + "!";
+        
+        function saveProfile() {
+            const nickname = document.getElementById('nicknameInput').value.trim();
+            if (!nickname) {
+                alert('אנא הכנס כינוי');
+                return;
+            }
+            
+            currentUser = {
+                nickname: nickname,
+                avatar: selectedAvatar,
+                points: 0
+            };
+            
+            localStorage.setItem('spainUser', JSON.stringify(currentUser));
+            
+            document.getElementById('profileModal').classList.add('hidden');
+            document.getElementById('userBadge').style.display = 'flex';
+            document.getElementById('userAvatarDisplay').textContent = selectedAvatar;
+            document.getElementById('userNameDisplay').textContent = nickname;
+            
+            updateLeaderboard();
         }
+        
+        // Check if user exists
+        window.onload = function() {
+            const savedUser = localStorage.getItem('spainUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                document.getElementById('profileModal').classList.add('hidden');
+                document.getElementById('userBadge').style.display = 'flex';
+                document.getElementById('userAvatarDisplay').textContent = currentUser.avatar;
+                document.getElementById('userNameDisplay').textContent = currentUser.nickname;
+                updateLeaderboard();
+            }
+        };
+        
+        // Countdown Timer
+        const targetDate = new Date('2026-02-27T06:00:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Vote System
+        let votes = {
+            day3: {},
+            anniversary: {},
+            shopping: {},
+            albufera: {}
+        };
+        
+        if (localStorage.getItem('spainVotes')) {
+            votes = JSON.parse(localStorage.getItem('spainVotes'));
+            updateVoteCounts();
+        }
+        
+        function vote(category, option, optionName) {
+            if (!currentUser) {
+                alert('אנא הירשם תחילה!');
+                return;
+            }
+            
+            const buttons = event.target.parentElement.querySelectorAll('.vote-btn');
+            buttons.forEach(btn => btn.classList.remove('voted'));
+            event.target.classList.add('voted');
+            
+            if (!votes[category][currentUser.nickname]) {
+                votes[category][currentUser.nickname] = {};
+            }
+            votes[category][currentUser.nickname] = {option: option, name: optionName};
+            
+            localStorage.setItem('spainVotes', JSON.stringify(votes));
+            updateVoteCounts();
+        }
+        
+        function updateVoteCounts() {
+            Object.keys(votes).forEach(category => {
+                const total = Object.keys(votes[category]).length;
+                const elem = document.getElementById(`vote-${category}`);
+                if (elem) {
+                    elem.textContent = `${total} הצבעות`;
+                }
+            });
+        }
+        
+        // Leaderboard System
+        function updateLeaderboard() {
+            const allUsers = JSON.parse(localStorage.getItem('allSpainUsers') || '[]');
+            const sorted = allUsers.sort((a, b) => b.points - a.points).slice(0, 3);
+            
+            const medals = ['👑', '🥈', '🥉'];
+            const leaderboardHTML = sorted.map((user, idx) => `
+                <div class="leaderboard-item">
+                    <span class="leaderboard-rank">${medals[idx]}</span>
+                    <span class="leaderboard-avatar">${user.avatar}</span>
+                    <div class="leaderboard-info">
+                        <div class="leaderboard-name">${user.nickname}</div>
+                        <div class="leaderboard-points">${user.points} נקודות</div>
+                    </div>
+                </div>
+            `).join('');
+            
+            if (leaderboardHTML) {
+                document.getElementById('leaderboard').innerHTML = leaderboardHTML;
+            }
+        }
+        
+        // Trivia System
+        const triviaQuestions = [
+            {
+                q: "מה השם של הפסטיבל המפורסם בולנסיה ב-3 במרץ?",
+                options: ["La Tomatina 🍅", "Running of the Bulls 🐂", "Las Fallas 🔥", "Semana Santa 🙏"],
+                correct: 2
+            },
+            {
+                q: "איזה אצטדיון כדורגל נמצא במדריד?",
+                options: ["Camp Nou", "Santiago Bernabéu ⚽", "Wanda Metropolitano", "שניים מהתשובות נכונות ✅"],
+                correct: 3
+            },
+            {
+                q: "מה השם של הפארק המפורסם במרכז מדריד?",
+                options: ["El Retiro 🌳", "Casa de Campo", "Madrid Río", "Parque del Oeste"],
+                correct: 0
+            },
+            {
+                q: "כמה דולפינים יש ב-Oceanogràfic של ולנסיה?",
+                options: ["5", "10", "20+", "אין שם דולפינים 🐬"],
+                correct: 2
+            },
+            {
+                q: "מהי הבירה של ספרד?",
+                options: ["ברצלונה", "מדריד 👑", "ולנסיה", "סביליה"],
+                correct: 1
+            },
+            {
+                q: "באיזו שפה מדברים בולנסיה?",
+                options: ["רק ספרדית", "ספרדית וקטלאנית", "ספרדית וולנסיאנית 🗣️", "רק ולנסיאנית"],
+                correct: 2
+            },
+            {
+                q: "כמה זמן לוקח הנסיעה ממדריד לולנסיה?",
+                options: ["1 שעה", "2 שעות", "3.5 שעות 🚗", "5 שעות"],
+                correct: 2
+            },
+            {
+                q: "מה הצבע של דגל ספרד?",
+                options: ["כחול-לבן", "אדום-צהוב 🇪🇸", "ירוק-לבן", "סגול-זהב"],
+                correct: 1
+            },
+            {
+                q: "איזה מטבע משתמשים בספרד?",
+                options: ["פאונד", "דולר", "יורו 💶", "פזטה"],
+                correct: 2
+            },
+            {
+                q: "מה השם של המוזיאון האינטראקטיבי שנבקר בו במדריד?",
+                options: ["Prado Museum", "Reina Sofía", "Velázquez Tech Museum 🎨", "Thyssen Museum"],
+                correct: 2
+            }
+        ];
+        
+        let currentTrivia = 0;
+        let triviaScore = 0;
+        
+        function loadTrivia() {
+            const q = triviaQuestions[currentTrivia];
+            document.getElementById('trivia-question').textContent = q.q;
+            
+            const optionsContainer = document.getElementById('trivia-options');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach((opt, idx) => {
+                const div = document.createElement('div');
+                div.className = 'trivia-option';
+                div.textContent = opt;
+                div.onclick = () => checkTrivia(idx === q.correct ? 'correct' : 'wrong');
+                optionsContainer.appendChild(div);
+            });
+        }
+        
+        function checkTrivia(result) {
+            if (result === 'correct') {
+                triviaScore++;
+                alert('🎉 נכון! +1 נקודה');
+                if (currentUser) {
+                    currentUser.points += 50;
+                    localStorage.setItem('spainUser', JSON.stringify(currentUser));
+                    updateLeaderboard();
+                }
+            } else {
+                alert('❌ לא נכון, אבל זה בסדר!');
+            }
+            document.getElementById('trivia-score').textContent = triviaScore;
+        }
+        
+        function nextTrivia() {
+            currentTrivia = (currentTrivia + 1) % triviaQuestions.length;
+            loadTrivia();
+        }
+        
+        loadTrivia();
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
