@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יום 8: ADIÓS ESPAÑA 😢✈️</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        h1 { font-size: 3em; margin-bottom: 10px; color: #f5576c; }
+        .date { font-size: 1.3em; opacity: 0.8; }
+        .weather {
+            margin-top: 15px;
+            font-size: 1.2em;
+            background: rgba(245,87,108,0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #f5576c;
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        .back-btn:hover {
+            background: #f093fb;
+            transform: translateY(-2px);
+        }
+        .section {
+            background: rgba(255,255,255,0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f5576c;
+            padding-bottom: 10px;
+            color: #f5576c;
+        }
+        .timeline { display: grid; gap: 15px; }
+        .timeline-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 5px solid #f5576c;
+        }
+        .time { font-size: 1.5em; font-weight: bold; color: #f5576c; margin-bottom: 8px; }
+        .activity { font-size: 1.2em; margin-bottom: 5px; color: #333; }
+        .details { opacity: 0.8; line-height: 1.6; color: #555; }
+        .farewell-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            border: 3px solid #f5576c;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .farewell-box h2 {
+            border: none;
+            margin-bottom: 15px;
+        }
+        .tips {
+            background: rgba(255, 193, 7, 0.15);
+            border-right: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .tips h3 { color: #f57c00; margin-bottom: 10px; }
+        ul { list-style-position: inside; line-height: 1.8; color: #555; }
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .memory-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+        }
+        .memory-icon { font-size: 3em; margin-bottom: 10px; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .timeline-item { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← חזרה ללו"ז המלא</a>
+        
+        <header>
+            <h1>ADIÓS ESPAÑA 😢✈️</h1>
+            <div class="date">📅 יום ראשון, 23 במרץ 2026</div>
+            <div class="weather">🌤️ מזג אוויר: 15°C | צלול | נסיעה בטוחה הביתה!</div>
+        </header>
+        
+        <div class="section">
+            <h2>⏰ לוח זמנים מפורט</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">06:00</div>
+                    <div class="activity">⏰ השכמה מוקדמת</div>
+                    <div class="details">
+                        • בדיקה אחרונה של החדרים<br>
+                        • וידוא שלא שכחתם משהו<br>
+                        • סגירת מזוודות
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">06:30</div>
+                    <div class="activity">🍳 ארוחת בוקר מהירה</div>
+                    <div class="details">
+                        • ארוחה במלון (אם פתוח)<br>
+                        • או: קפה וקרואסון בדרך<br>
+                        • בדיקת דרכונים וכרטיסי טיסה
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">07:00</div>
+                    <div class="activity">🏨 צ'ק-אאוט</div>
+                    <div class="details">
+                        • החזרת מפתחות<br>
+                        • קבלת חשבונית (לצורך דיווח)<br>
+                        • טעינת מזוודות לרכב
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">07:15</div>
+                    <div class="activity">⛽ תדלוק מלא</div>
+                    <div class="details">
+                        <strong>חובה לתדלק מלא לפני החזרת הרכב!</strong><br>
+                        📍 תחנות ליד המלון:<br>
+                        • Repsol - Calle de Sierra Morena<br>
+                        • Cepsa - Av. de la Albufera<br>
+                        <br>
+                        💡 **תדלקו עד שהמד שבור מלא!** שמרו על קבלה.
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">07:45</div>
+                    <div class="activity">🚗 נסיעה לשדה התעופה</div>
+                    <div class="details">
+                        📍 <strong>Madrid-Barajas Airport (MAD)</strong><br>
+                        🛣️ מסלול: M-40 → M-12 → Airport T4<br>
+                        ⏱️ זמן נסיעה: 25-30 דקות<br>
+                        🚦 תנועה בוקר - תנו מרווח זמן!
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">08:15</div>
+                    <div class="activity">🚙 החזרת רכב שכור</div>
+                    <div class="details">
+                        📍 <strong>Car Rental Return - Terminal 4</strong><br>
+                        <br>
+                        <strong>✅ רשימת בדיקות:</strong><br>
+                        • ✅ תדלוק מלא<br>
+                        • ✅ רכב נקי (בערך)<br>
+                        • ✅ כל המזוודות הועברו<br>
+                        • ✅ בדיקת נזקים עם הנציג<br>
+                        • ✅ קבלת אישור החזרה<br>
+                        <br>
+                        ⏱️ תהליך החזרה: 15-20 דקות
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">08:45</div>
+                    <div class="activity">🛄 צ'ק-אין וביטחון</div>
+                    <div class="details">
+                        ✈️ <strong>טיסה HV6708 - Transavia</strong><br>
+                        🕐 המראה: 11:25<br>
+                        📍 Terminal 4<br>
+                        <br>
+                        <strong>תהליך:</strong><br>
+                        1️⃣ צ'ק-אין ודרופ מזוודות (דלפק 401-410)<br>
+                        2️⃣ ביקורת דרכונים<br>
+                        3️⃣ ביטחון (Security Check)<br>
+                        4️⃣ **Tax Free** - אם קניתם מעל 90€!<br>
+                        <br>
+                        💡 **הגיעו לשער 2 שעות לפני** = 09:25
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">09:30</div>
+                    <div class="activity">🛍️ Duty Free + קניות אחרונות</div>
+                    <div class="details">
+                        <strong>חנויות מומלצות:</strong><br>
+                        🍫 <strong>Chocolates & Sweets</strong> - טורון, שוקולד ספרדי<br>
+                        🍷 <strong>Wine & Spirits</strong> - יין ספרדי, סנגריה<br>
+                        🧴 <strong>Perfumes & Cosmetics</strong> - בושם מוזל<br>
+                        🥘 <strong>Spanish Food</strong> - זעפרן, חמון איברי<br>
+                        ⚽ <strong>Souvenirs</strong> - מתנות אחרונות<br>
+                        <br>
+                        ☕ בתי קפה: Starbucks, Caffè Ritazza
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">10:45</div>
+                    <div class="activity">🚪 עלייה למטוס</div>
+                    <div class="details">
+                        📍 שער: יוכרז בשדה (בדקו במסכים)<br>
+                        🚶 הליכה לשער: 10-15 דקות<br>
+                        🎫 הצגת דרכון וכרטיס טיסה<br>
+                        <br>
+                        **Boarding ב-10:45** - אל תאחרו!
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">11:25</div>
+                    <div class="activity">✈️ המראה!</div>
+                    <div class="details">
+                        🛫 <strong>טיסה HV6708</strong><br>
+                        🕐 המראה: 11:25 (שעון מקומי)<br>
+                        ⏱️ משך טיסה: ~4 שעות 40 דקות<br>
+                        🌍 זמן ישראל: +1 שעה<br>
+                        <br>
+                        **נחיתה צפויה בישראל: 17:05** (זמן ישראל)
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">17:05</div>
+                    <div class="activity">🛬 נחיתה בישראל! 🇮🇱</div>
+                    <div class="details">
+                        📍 <strong>נתב"ג - Ben Gurion Airport</strong><br>
+                        • איסוף מזוודות<br>
+                        • מעבר דרכונים ומכס<br>
+                        • **Tax Free** - אישור חותמות למכס<br>
+                        <br>
+                        🏠 **חזרנו הביתה!** 🎉<br>
+                        <br>
+                        🇪🇸 **Gracias España!** 🇪🇸
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="farewell-box">
+            <h2 style="font-size: 2.5em;">🇪🇸 ¡Hasta luego, España! 🇪🇸</h2>
+            <p style="font-size: 1.3em; line-height: 1.8; margin-top: 20px;">
+                8 ימים בלתי נשכחים!<br>
+                מדריד • ולנסיה • פאייאס • דולפינים • רכבות הרים<br>
+                זיכרונות לכל החיים 💕<br>
+                <br>
+                <strong>אנחנו מקווים שנחזור שוב בקרוב!</strong>
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>📸 הזיכרונות שלנו מהטיול</h2>
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="memory-icon">🎭</div>
+                    WAH Show Madrid
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🌳</div>
+                    פארק רטירו
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🎢</div>
+                    Warner Bros Park
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🚗</div>
+                    Road Trip
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🔥</div>
+                    Las Fallas Festival
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">💕</div>
+                    יום נישואין
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🐬</div>
+                    Oceanogràfic
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🛍️</div>
+                    Las Rozas Village
+                </div>
+            </div>
+        </div>
+        
+        <div class="tips">
+            <h3>💡 טיפים חשובים ליום האחרון:</h3>
+            <ul>
+                <li>⏰ הגיעו לשדה 3 שעות לפני - תור ארוך בצ'ק-אין!</li>
+                <li>⛽ תדלקו מלא - יגבו אחרת 3€ לליטר!</li>
+                <li>📄 Tax Free - תצטרכו דרכון + קבלות + טופס מילוי</li>
+                <li>🎒 שקלו משקל מזוודות - עד 23 ק"ג למזוודה</li>
+                <li>💧 בקבוקי מים - רק אחרי הביטחון!</li>
+                <li>🔋 טלפונים טעונים - לכרטיסי טיסה דיגיטליים</li>
+                <li>💰 הוציאו יורו אחרון - למזכרות בדיוטי פרי</li>
+                <li>📸 תמונה אחרונה במטוס - סיום מושלם!</li>
+            </ul>
+        </div>
+        
+        <div class="section" style="text-align: center;">
+            <h2>📸 אלבום תמונות משפחתי</h2>
+            <p style="margin: 20px 0;">העלו את התמונות האחרונות לאלבום!</p>
+            <a href="https://photos.app.goo.gl/zNftUhkK2adw55bc8" 
+               target="_blank" 
+               style="display: inline-block; padding: 15px 40px; background: #4CAF50; color: white; text-decoration: none; border-radius: 25px; font-size: 1.2em; font-weight: bold;">
+                📷 פתח את אלבום Google Photos
+            </a>
+        </div>
+        
+        <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; text-align: center;">
+            <h2 style="color: #fff; border-color: rgba(255,255,255,0.3);">🎉 סיכום הטיול 🎉</h2>
+            <p style="font-size: 1.3em; line-height: 1.8; margin-top: 20px;">
+                ✈️ 2 טיסות<br>
+                🚗 700 ק"מ נהיגה<br>
+                🏨 2 מלונות<br>
+                🎢 1 פארק שעשועים<br>
+                🐬 1 אוקיאנריום<br>
+                🔥 1 פסטיבל אש<br>
+                🥘 אינסוף פאייאס<br>
+                💕 1 יום נישואין מיוחד<br>
+                📸 אלפי תמונות<br>
+                ❤️ זיכרונות לנצח<br>
+                <br>
+                <strong style="font-size: 1.5em;">¡MUCHAS GRACIAS, ESPAÑA! 🇪🇸</strong>
+            </p>
+        </div>
+        
+        <a href="index.html" class="back-btn" style="display: block; text-align: center; margin-top: 30px;">
+            ← חזרה ללו"ז המלא
+        </a>
+    </div>
+</body>
+</html>
