@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יום 6: WILDLIFE & WATER 🐬</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0093E9 0%, #80D0C7 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .date { font-size: 1.3em; opacity: 0.9; }
+        .weather {
+            margin-top: 15px;
+            font-size: 1.2em;
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid #fff;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        .back-btn:hover {
+            background: #fff;
+            color: #0093E9;
+            transform: translateY(-2px);
+        }
+        .section {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+        .timeline { display: grid; gap: 15px; }
+        .timeline-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 5px solid #80D0C7;
+        }
+        .time { font-size: 1.5em; font-weight: bold; color: #80D0C7; margin-bottom: 8px; }
+        .activity { font-size: 1.2em; margin-bottom: 5px; }
+        .details { opacity: 0.8; line-height: 1.6; }
+        .map-container { height: 400px; border-radius: 15px; overflow: hidden; margin-top: 20px; }
+        iframe { width: 100%; height: 100%; border: none; }
+        .challenges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .challenge-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .challenge-card:hover { transform: translateY(-5px); }
+        .challenge-icon { font-size: 3em; margin-bottom: 10px; }
+        .tips {
+            background: rgba(255, 193, 7, 0.2);
+            border-right: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .tips h3 { color: #ffd700; margin-bottom: 10px; }
+        ul { list-style-position: inside; line-height: 1.8; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .timeline-item { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← חזרה ללו"ז המלא</a>
+        
+        <header>
+            <h1>WILDLIFE & WATER 🐬</h1>
+            <div class="date">📅 יום שישי, 21 במרץ 2026</div>
+            <div class="weather">☀️ מזג אוויר: 20°C | שמשי ומושלם | בגדי ים חובה!</div>
+        </header>
+        
+        <div class="section">
+            <h2>⏰ לוח זמנים מפורט</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">08:30</div>
+                    <div class="activity">🍳 ארוחת בוקר במלון</div>
+                    <div class="details">
+                        • ארוחה מלאה - יום ארוך מחכה!<br>
+                        • הכנות: בגדי ים, מגבת, קרם הגנה, בגדים להחלפה
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">09:30</div>
+                    <div class="activity">🐬 Oceanogràfic - האוקיאנוגרפי!</div>
+                    <div class="details">
+                        📍 <strong>L'Oceanogràfic València</strong><br>
+                        Carrer d'Eduardo Primo Yúfera, 1B<br>
+                        🎫 שעות: 10:00-18:00<br>
+                        <br>
+                        <strong>🌊 האקווריום הגדול באירופה!</strong><br>
+                        <br>
+                        <strong>מה לראות (סדר מומלץ):</strong><br>
+                        <br>
+                        1️⃣ <strong>Dolphinarium</strong> 🐬<br>
+                        • הצגת דולפינים: 11:30, 13:00, 16:00<br>
+                        • **הגיעו 20 דקות מראש למקומות טובים!**<br>
+                        <br>
+                        2️⃣ <strong>Arctic Zone</strong> 🐧<br>
+                        • בלוגות, לווייתנים לבנים, צבים<br>
+                        • אזור הארקטי מרהיב!<br>
+                        <br>
+                        3️⃣ <strong>Oceans</strong> 🦈<br>
+                        • מנהרת התצפית תת-ימית<br>
+                        • כרישים, דגי ענק, דקורים<br>
+                        • **הילדים יתפעלו!**<br>
+                        <br>
+                        4️⃣ <strong>Medusas (Jellyfish)</strong> 🪼<br>
+                        • מדוזות צבעוניות ומרהיבות<br>
+                        • תאורה מיוחדת - חובה לצלם!<br>
+                        <br>
+                        5️⃣ <strong>Tropical</strong> 🐠<br>
+                        • דגים טרופיים צבעוניים<br>
+                        • אקווריום אלמוגים<br>
+                        <br>
+                        6️⃣ <strong>Sea Lions</strong> 🦭<br>
+                        • אריות ים שובבים<br>
+                        • הרבה אינטראקציה!<br>
+                        <br>
+                        ⏱️ זמן מומלץ: 4-5 שעות
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">13:00</div>
+                    <div class="activity">🍽️ ארוחת צהריים באוקיאנוגרפי</div>
+                    <div class="details">
+                        <strong>מסעדות באתר:</strong><br>
+                        🍔 <strong>Restaurante Submarino</strong> - מסעדה תת-ימית! (יקר אבל שווה)<br>
+                        🍕 <strong>The Point</strong> - פיצה והמבורגרים<br>
+                        🥗 <strong>Oceanogràfic Café</strong> - קל ומהיר<br>
+                        <br>
+                        **או:** קחו כריכים מהמלון!
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">14:30</div>
+                    <div class="activity">🏗️ City of Arts & Sciences</div>
+                    <div class="details">
+                        📍 <strong>Ciutat de les Arts i les Ciències</strong><br>
+                        <br>
+                        <strong>אופציות:</strong><br>
+                        <br>
+                        🔬 <strong>Museu de les Ciències</strong> - מוזיאון מדע אינטראקטיבי<br>
+                        • מתאים מאוד לילדים!<br>
+                        • ניסויים, תצוגות מדע<br>
+                        <br>
+                        🎬 <strong>L'Hemisfèric</strong> - קולנוע IMAX<br>
+                        • סרטי תיעוד מרהיבים<br>
+                        • בדקו מראש את לוח הזמנים<br>
+                        <br>
+                        🌳 <strong>או:** טיול בגנים + צילומים של הארכיטקטורה**<br>
+                        • חינם ומרהיב!<br>
+                        • הבריכות המשקפות את המבנים
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">17:00</div>
+                    <div class="activity">🛍️ קניות ב-Nuevo Centro</div>
+                    <div class="details">
+                        📍 <strong>Nuevo Centro Shopping Mall</strong><br>
+                        Av. de Pío XII, 2<br>
+                        • קניון גדול עם כל החנויות<br>
+                        • Zara, H&M, Massimo Dutti, Mango<br>
+                        • רילוקס אחרי יום עמוס
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">19:30</div>
+                    <div class="activity">🌊 שקיעה בחוף</div>
+                    <div class="details">
+                        📍 <strong>Playa de la Malvarrosa</strong><br>
+                        • שקיעה מדהימה מעל הים<br>
+                        • טיילת ואווירה נעימה<br>
+                        • **חובה לסיים את היום ככה!**
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">20:30</div>
+                    <div class="activity">🍴 ארוחת ערב בחוף</div>
+                    <div class="details">
+                        <strong>מסעדות על הים:</strong><br>
+                        🦐 <strong>La Pepica</strong> - המקום הכי מפורסם לפאייה<br>
+                        🐟 <strong>Casa Montaña</strong> - אוכל ים מצוין<br>
+                        🍕 <strong>La Più Bella</strong> - איטלקי מול הים<br>
+                        🥘 <strong>Bodega Casa Montaña</strong> - טאפאס מסורתיות
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="time">22:30</div>
+                    <div class="activity">🏨 חזרה למלון</div>
+                    <div class="details">
+                        • ארזו מזוודות - מחר חוזרים למדריד!<br>
+                        • צ'ק-אאוט מחר בבוקר
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🗺️ מפת היום</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.8744826832823!2d-0.3523!3d39.4533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f562c13f8e5%3A0x8e0b8e0b8e0b8e0b!2sL&#39;Oceanogr%C3%A0fic!5e0!3m2!1sen!2ses!4v1234567890" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 אתגרי היום</h2>
+            <div class="challenges">
+                <div class="challenge-card">
+                    <div class="challenge-icon">🐬</div>
+                    <strong>אתגר דולפינים</strong><br>
+                    סרטון מהצגת הדולפינים!
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon">🦈</div>
+                    <strong>אתגר כרישים</strong><br>
+                    תמונה מהמנהרה התת-ימית
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon">🏗️</div>
+                    <strong>אתגר ארכיטקטורה</strong><br>
+                    תמונה יצירתית של City of Arts
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon">🌅</div>
+                    <strong>אתגר שקיעה</strong><br>
+                    תמונה של השקיעה בחוף
+                </div>
+            </div>
+        </div>
+        
+        <div class="tips">
+            <h3>💡 טיפים חשובים:</h3>
+            <ul>
+                <li>🎫 קנו כרטיסים אונליין מראש - תור ארוך בכניסה!</li>
+                <li>👟 נעליים נוחות - הרבה הליכה!</li>
+                <li>📸 הטלפונים טעונים? הרבה תמונות לצלם!</li>
+                <li>💧 בקבוקי מים - יש עמדות מילוי בחינם</li>
+                <li>🧴 קרם הגנה - הרבה זמן בחוץ</li>
+                <li>🎒 תיק גב קל - תישאו הרבה דברים</li>
+                <li>🍔 האוכל באוקיאנוגרפי יקר - שקלו להביא כריכים</li>
+                <li>🅿️ חניה: Parking Oceanogràfic - 10€/יום</li>
+                <li>⏰ הגעה מוקדמת: 09:45 - פחות תורים!</li>
+            </ul>
+        </div>
+        
+        <div class="section" style="text-align: center;">
+            <h2>📸 אלבום תמונות משפחתי</h2>
+            <p style="margin: 20px 0;">העלו תמונות מהיום לאלבום המשותף!</p>
+            <a href="https://photos.app.goo.gl/zNftUhkK2adw55bc8" 
+               target="_blank" 
+               style="display: inline-block; padding: 15px 40px; background: #4CAF50; color: white; text-decoration: none; border-radius: 25px; font-size: 1.2em; font-weight: bold;">
+                📷 פתח את אלבום Google Photos
+            </a>
+        </div>
+        
+        <a href="index.html" class="back-btn" style="display: block; text-align: center; margin-top: 30px;">
+            ← חזרה ללו"ז המלא
+        </a>
+    </div>
+</body>
+</html>
